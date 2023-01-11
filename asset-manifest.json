@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9197b4c5.css",
+    "main.js": "/static/js/main.e098bbcd.js",
+    "static/js/787.f5e28c30.chunk.js": "/static/js/787.f5e28c30.chunk.js",
+    "static/media/magic.mp3": "/static/media/magic.935235518bad7c3a2515.mp3",
+    "static/media/salted.mp3": "/static/media/salted.8ba9922d7d250db119d7.mp3",
+    "static/media/momma.mp3": "/static/media/momma.eac6357e2dbc6ef4f6bd.mp3",
+    "static/media/andrew1.png": "/static/media/andrew1.da82bae32a72a92788a7.png",
+    "static/media/noice.png": "/static/media/noice.5a69f7ea9462cf46bbc2.png",
+    "static/media/andrew2.jfif": "/static/media/andrew2.e22cdedadbea3d9f1f2c.jfif",
+    "static/media/andrew3.jpg": "/static/media/andrew3.134739cd88638673e2c2.jpg",
+    "static/media/kermit2.jpg": "/static/media/kermit2.7dec3170524624091eb3.jpg",
+    "index.html": "/index.html",
+    "main.9197b4c5.css.map": "/static/css/main.9197b4c5.css.map",
+    "main.e098bbcd.js.map": "/static/js/main.e098bbcd.js.map",
+    "787.f5e28c30.chunk.js.map": "/static/js/787.f5e28c30.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9197b4c5.css",
+    "static/js/main.e098bbcd.js"
+  ]
+}
