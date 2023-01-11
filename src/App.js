@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import NotificationChat from "./NotificationChat";
+import Modal from "./Modal";
+import Table from "./Table";
+import SongPlayer from "./SongPlayer";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="bg-cover h-screen w-screen overflow-y-auto bg-kermit2 flex items-center justify-center">
+      <SongPlayer />
     </div>
   );
 }
