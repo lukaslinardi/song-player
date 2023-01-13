@@ -16,9 +16,6 @@ function App() {
     else setIndex((previousIndex) => previousIndex + 1);
   };
 
-  console.log("array size: ", background.length);
-  console.log("index: ", index);
-
   return (
     <div
       class="justify-center bg-no-repeat bg-cover h-screen w-screen overflow-y-auto"
