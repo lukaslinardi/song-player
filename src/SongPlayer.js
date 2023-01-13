@@ -82,35 +82,33 @@ const SongPlayer = () => {
   }, [volumeValue]);
 
   return (
-    <div class="flex justify-center items-center">
-      <div class="bg-[#93B4A8] p-3 mx-auto rounded-lg mt-[10px] flex items-center justify-center max-w-md space-x-4 border-double border-sky-500 border-2">
-        <img src={mediaPlayer[index].cover} class="h-1/2 w-1/2 rounded-lg" />
-        <div class="ml-[20px] flex flex-col items-center w-2/4 text-center max-w-prose font-custom text-xl">
-          <div>
-            <p>{mediaPlayer[index].artist}</p>
-            <p>{mediaPlayer[index].title}</p>
-          </div>
-          <div
-            class="flex justify-center flex-row mt-[50px] bg-[#001E3C] p-2 rounded-lg"
-            style={{ color: "#ffffff" }}
-          >
-            <button onClick={previousMedia}>
-              <FastRewindIcon />
-            </button>
-            <button onClick={playMedia ? pause : play}>
-              {playMedia ? <PauseIcon /> : <PlayArrowIcon />}
-            </button>
-            <button onClick={nextMedia}>
-              <FastForwardIcon />
-            </button>
-          </div>
-          <input
-            type="range"
-            class="mt-[10px]"
-            value={volumeValue}
-            onChange={(e) => setVolumeValue(e.target.value)}
-          />
+    <div class="bg-[#93B4A8] p-3 mx-auto rounded-lg mt-[10px] flex items-center justify-center max-w-md space-x-4 border-double border-sky-500 border-2">
+      <img src={mediaPlayer[index].cover} class="h-1/2 w-1/2 rounded-lg" />
+      <div class="ml-[20px] flex flex-col items-center w-2/4 text-center max-w-prose font-custom text-xl">
+        <div>
+          <p>{mediaPlayer[index].artist}</p>
+          <p>{mediaPlayer[index].title}</p>
         </div>
+        <div
+          class="flex justify-center flex-row mt-[50px] bg-[#001E3C] p-2 rounded-lg"
+          style={{ color: "#ffffff" }}
+        >
+          <button onClick={previousMedia}>
+            <FastRewindIcon />
+          </button>
+          <button onClick={playMedia ? pause : play}>
+            {playMedia ? <PauseIcon /> : <PlayArrowIcon />}
+          </button>
+          <button onClick={nextMedia}>
+            <FastForwardIcon />
+          </button>
+        </div>
+        <input
+          type="range"
+          class="mt-[10px]"
+          value={volumeValue}
+          onChange={(e) => setVolumeValue(e.target.value)}
+        />
       </div>
     </div>
   );
