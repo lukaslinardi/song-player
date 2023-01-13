@@ -5,8 +5,9 @@ import SongPlayer from "./SongPlayer";
 
 import kermit2 from "./assets/kermit2.jpg";
 import kermit from "./assets/kermit.jpg";
+import doge from "./assets/doge.jpg";
 
-const background = [kermit2, kermit];
+const background = [kermit2, kermit, doge];
 
 function App() {
   const [index, setIndex] = useState(0);
