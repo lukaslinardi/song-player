@@ -12,18 +12,21 @@ const background = [kermit2, kermit, doge];
 function App() {
   const [index, setIndex] = useState(0);
 
-  const changeBackground = () => {
-    if (background.length - 1 <= index) setIndex(0);
+  const handleChangeBackground = () => {
+    if (index === background.length - 1) setIndex(0);
     else setIndex((previousIndex) => previousIndex + 1);
   };
 
   return (
     <div
-      class="justify-center bg-no-repeat bg-cover h-screen w-screen overflow-y-auto"
+      class="bg-no-repeat bg-cover w-screen h-screen overflow-y-auto flex justify-center items-center flex-col"
       style={{ backgroundImage: `url(${background[index]})` }}
     >
-      <button class="p-2 bg-white rounded" onClick={changeBackground}>
-        Change background
+      <button
+        onClick={handleChangeBackground}
+        class="p-3 bg-white w-[15%] h-[5%] flex items-center justify-center rounded"
+      >
+        Change Background
       </button>
       <SongPlayer />
     </div>
