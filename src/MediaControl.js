@@ -6,6 +6,11 @@ const MediaControl = () => {
   const { audioRef, setPlayMedia, durationValue, setDurationValue } =
     useContext(SongContext);
 
+  const songTime = new Date(Math.ceil(audioRef.current.currentTime) * 1000);
+
+  const minutes = songTime.getUTCMinutes().toString().padStart(2, "0");
+  const seconds = songTime.getSeconds().toString().padStart(2, "0");
+
   useEffect(() => {
     audioRef.current.onended = () => {
       setPlayMedia(false);
@@ -25,14 +30,17 @@ const MediaControl = () => {
   }, [audioRef.current.currentTime, audioRef.durationValue]);
 
   return (
-    <div>
+    <div class="w-full flex justify-center items-center flex-col">
       <input
         type="range"
-        class="mt-[10px] w-full bg-blue-500"
+        class="mt-[10px] w-[40%] h-1"
         max={audioRef.current.duration.toString()}
         value={durationValue}
         onChange={(e) => (audioRef.current.currentTime = e.target.value)}
       />
+      <p class="font-semibold mt-[10px]">
+        {minutes} : {seconds}
+      </p>
     </div>
   );
 };
