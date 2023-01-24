@@ -1,35 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 
 import "./App.css";
 import SongPlayer from "./SongPlayer";
 
 import kermit2 from "./assets/kermit2.jpg";
-import kermit from "./assets/kermit.jpg";
 import doge from "./assets/doge.jpg";
+import kermit from "./assets/kermit.jpg";
 
-const background = [kermit2, kermit, doge];
+import SongProvider from "./SongProvider";
+import MediaControl from "./MediaControl";
+
+const background = [doge, kermit2, kermit];
 
 function App() {
   const [index, setIndex] = useState(0);
 
-  const handleChangeBackground = () => {
-    if (index === background.length - 1) setIndex(0);
+  const handleChangeBackground = useCallback(() => {
+    if (index >= background.length - 1) setIndex(0);
     else setIndex((previousIndex) => previousIndex + 1);
-  };
+  }, [index]);
 
   return (
-    <div
-      class="bg-no-repeat bg-cover w-screen h-screen overflow-y-auto flex justify-center items-center flex-col"
-      style={{ backgroundImage: `url(${background[index]})` }}
-    >
-      <button
-        onClick={handleChangeBackground}
-        class="p-3 bg-white w-[15%] h-[5%] flex items-center justify-center rounded"
+    <SongProvider>
+      <div
+        class="bg-no-repeat bg-cover w-screen h-screen overflow-y-auto flex justify-center items-center flex-col"
+        style={{ backgroundImage: `url(${background[index]})` }}
       >
-        Change Background
-      </button>
-      <SongPlayer />
-    </div>
+        <button
+          onClick={handleChangeBackground}
+          class="p-3 bg-white w-[15%] h-[5%] flex items-center justify-center rounded"
+        >
+          Change Background
+        </button>
+        <SongPlayer />
+        <MediaControl />
+      </div>
+    </SongProvider>
   );
 }
 
