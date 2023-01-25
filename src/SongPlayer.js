@@ -1,47 +1,11 @@
-import React, { useState, useCallback, useEffect, useContext } from "react";
-
-import {
-  FastForward as FastForwardIcon,
-  FastRewind as FastRewindIcon,
-  PlayArrow as PlayArrowIcon,
-  Pause as PauseIcon,
-} from "@mui/icons-material";
+import React, { useState, useEffect, useContext } from "react";
 
 import { SongContext } from "./SongProvider";
 
 const SongPlayer = () => {
-  const { mediaPlayer, audioRef, index, setIndex, playMedia, setPlayMedia } =
-    useContext(SongContext);
+  const { mediaPlayer, audioRef, index } = useContext(SongContext);
 
   const [volumeValue, setVolumeValue] = useState(30);
-
-  const previousMedia = useCallback(() => {
-    if (index === 0) return;
-    else if (index !== 0) {
-      setIndex((previousIndex) => previousIndex - 1);
-      setPlayMedia(false);
-      audioRef.current.currentTime = 0;
-    }
-  }, [index]);
-
-  const nextMedia = useCallback(() => {
-    if (index === mediaPlayer.length - 1) return;
-    else if (index <= mediaPlayer.length - 1) {
-      setIndex((previousIndex) => previousIndex + 1);
-      setPlayMedia(false);
-      audioRef.current.currentTime = 0;
-    }
-  }, [index]);
-
-  const play = useCallback(() => {
-    setPlayMedia(true);
-    audioRef.current.play();
-  }, [playMedia]);
-
-  const pause = useCallback(() => {
-    setPlayMedia(false);
-    audioRef.current.pause();
-  }, [playMedia]);
 
   useEffect(() => {
     audioRef.current.src = mediaPlayer[index].song;
@@ -58,20 +22,6 @@ const SongPlayer = () => {
         <div class="text-white">
           <p>{mediaPlayer[index].artist}</p>
           <p>{mediaPlayer[index].title}</p>
-        </div>
-        <div
-          class="flex justify-center flex-row mt-[50px] bg-[#001E3C] p-2 rounded-lg"
-          style={{ color: "#ffffff" }}
-        >
-          <button onClick={previousMedia}>
-            <FastRewindIcon />
-          </button>
-          <button onClick={playMedia ? pause : play}>
-            {playMedia ? <PauseIcon /> : <PlayArrowIcon />}
-          </button>
-          <button onClick={nextMedia}>
-            <FastForwardIcon />
-          </button>
         </div>
         <input
           type="range"
