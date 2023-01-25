@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 
 import { SongContext } from "./SongProvider";
 
-const MediaControl = () => {
+const MediaDuration = () => {
   const { audioRef, setPlayMedia, durationValue, setDurationValue } =
     useContext(SongContext);
 
@@ -15,7 +15,7 @@ const MediaControl = () => {
     audioRef.current.onended = () => {
       setPlayMedia(false);
       audioRef.current.currentTime = 0;
-      audioRef.setDurationValue(0);
+      setDurationValue(0);
     };
   }, [audioRef.current.onended]);
 
@@ -27,13 +27,13 @@ const MediaControl = () => {
       },
       false
     );
-  }, [audioRef.current.currentTime, audioRef.durationValue]);
+  }, [audioRef.current.currentTime, durationValue]);
 
   return (
     <div class="w-full flex justify-center items-center flex-col">
       <input
         type="range"
-        class="mt-[10px] w-[40%] h-1"
+        class="mt-[10px] w-[80%] h-1"
         max={audioRef.current.duration.toString()}
         value={durationValue}
         onChange={(e) => (audioRef.current.currentTime = e.target.value)}
@@ -45,4 +45,4 @@ const MediaControl = () => {
   );
 };
 
-export default MediaControl;
+export default MediaDuration;

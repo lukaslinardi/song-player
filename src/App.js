@@ -8,7 +8,7 @@ import doge from "./assets/doge.jpg";
 import kermit from "./assets/kermit.jpg";
 
 import SongProvider from "./SongProvider";
-import MediaControl from "./MediaControl";
+import MediaDuration from "./MediaDuration";
 
 const background = [doge, kermit2, kermit];
 
@@ -28,12 +28,14 @@ function App() {
       >
         <button
           onClick={handleChangeBackground}
-          class="p-3 bg-white w-[15%] h-[5%] flex items-center justify-center rounded"
+          class="p-3 bg-white w-[15%] h-[5%] flex items-center justify-center rounded mb-[10px]"
         >
           Change Background
         </button>
-        <SongPlayer />
-        <MediaControl />
+        <div class="bg-slate-500 p-4 rounded ">
+          <SongPlayer />
+          <MediaDuration />
+        </div>
       </div>
     </SongProvider>
   );

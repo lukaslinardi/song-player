@@ -52,10 +52,10 @@ const SongPlayer = () => {
   }, [volumeValue]);
 
   return (
-    <div class="bg-[#93B4A8] p-3 rounded-lg mt-[10px] mb-[10px] mx-auto flex items-center justify-center max-w-md space-x-4 border-double border-sky-500 border-2">
+    <div class="bg-slate-700 p-3 rounded-lg mt-[10px] mb-[10px] mx-auto flex items-center justify-center max-w-md space-x-4 border-double border-sky-700 border-2">
       <img src={mediaPlayer[index].cover} class="h-[100%] w-1/2 rounded-lg" />
       <div class="ml-[20px] flex flex-col items-center w-full text-center max-w-md font-custom text-xl min-w-min min-h-min">
-        <div>
+        <div class="text-white">
           <p>{mediaPlayer[index].artist}</p>
           <p>{mediaPlayer[index].title}</p>
         </div>
@@ -79,13 +79,6 @@ const SongPlayer = () => {
           value={volumeValue}
           onChange={(e) => setVolumeValue(e.target.value)}
         />
-        {/* <input
-          type="range"
-          class="mt-[10px] w-full bg-blue-500"
-          max={audioRef.current.duration.toString()}
-          value={durationValue}
-          onChange={(e) => (audioRef.current.currentTime = e.target.value)}
-        /> */}
       </div>
     </div>
   );
