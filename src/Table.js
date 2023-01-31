@@ -1,38 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 
-const datas = [
-  {
-    id: 1,
-    state: "Indiana",
-    city: "Indianapolis",
-  },
-  {
-    id: 2,
-    state: "Ohio",
-    city: "Columbus",
-  },
-  {
-    id: 3,
-    state: "Michigan",
-    city: "Detroit",
-  },
-];
+import { SongContext } from "./SongProvider";
 
 const Table = () => {
+  const { mediaPlayer, setIndex, index } = useContext(SongContext);
+
   return (
-    <div class="flex justify-center mt-3">
-      <table class="px-3 rounded-lg bg-white shadow-lg">
+    <div class="flex justify-center mt-3 rounded border">
+      <table class="px-3 rounded-lg bg-white">
         <thead>
           <tr>
-            <th class="border-b-2 px-20">State</th>
-            <th class="border-b-2 px-20">City</th>
+            <th class="border-b-2 px-20">Music</th>
+            <th class="border-b-2 px-20">Artist</th>
           </tr>
         </thead>
         <tbody>
-          {datas.map((data) => (
-            <tr key={data.id} class="border-t text-center">
-              <td>{data.state}</td>
-              <td>{data.city}</td>
+          {mediaPlayer.map((data) => (
+            <tr
+              key={data.id}
+              class={`border-t text-center font-semibold ${
+                index === data.id - 1 ? "bg-amber-500 " : "bg-white"
+              }`}
+            >
+              <button
+                class="w-full"
+                onClick={() => setIndex(data.id - 1)}
+                type="button"
+              >
+                <div class="flex justify-center items-center p-3">
+                  <td>{data.title}</td>
+                </div>
+              </button>
+              <td>{data.artist}</td>
             </tr>
           ))}
         </tbody>

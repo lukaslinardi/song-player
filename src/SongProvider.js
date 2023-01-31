@@ -3,13 +3,11 @@ import React, { createContext, useRef, useState } from "react";
 import momma from "./assets/andrew1.png";
 import magic from "./assets/andrew2.jfif";
 import salted from "./assets/andrew3.jpg";
-import tove from "./assets/tove.jfif";
 import tom from './assets/mixed-messages.jpg'
 
 import momma_song from "./assets/momma.mp3";
 import magic_song from "./assets/magic.mp3";
 import salted_song from "./assets/salted.mp3";
-import Talking_Body from "./assets/Talking_Body.mp3";
 import Mixed_Messages from './assets/Mixed_Messages.mp3'
 
 const medias = [
@@ -51,7 +49,9 @@ const SongProvider = ({ children }) => {
   const [index, setIndex] = useState(0);
   const [durationValue, setDurationValue] = useState(0);
   const [playMedia, setPlayMedia] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const audioRef = useRef(new Audio(mediaPlayer[index].song));
+
   return (
       <SongContext.Provider
         value={{
@@ -64,6 +64,8 @@ const SongProvider = ({ children }) => {
           medias,
           playMedia,
           setPlayMedia,
+          openModal,
+          setOpenModal,
         }}
       >
         {children}

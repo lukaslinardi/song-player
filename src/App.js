@@ -10,6 +10,7 @@ import kermit from "./assets/kermit.jpg";
 import SongProvider from "./SongProvider";
 import MediaDuration from "./MediaDuration";
 import MediaControl from "./MediaControl";
+import Modal from "./Modal";
 
 const background = [doge, kermit2, kermit];
 
@@ -37,6 +38,7 @@ function App() {
           <SongPlayer />
           <MediaControl />
           <MediaDuration />
+          <Modal />
         </div>
       </div>
     </SongProvider>
